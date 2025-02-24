@@ -8,7 +8,7 @@ def buscar_produto():
         codigo_barras = request.args.get('codigo')
         print(codigo_barras)
         if not codigo_barras:
-            return jsonify({"erro": "Código de barras não fornecido"}), 400
+            return jsonify({"msg": "Código de barras não fornecido"}), 400
 
         conn = connect_banco()
         cur = conn.cursor()
@@ -24,7 +24,7 @@ def buscar_produto():
             produto_dict = dict(zip(colunas, produto))
             return jsonify(produto_dict)
         else:
-            return jsonify({"erro": "Produto não encontrado"}), 404
+            return jsonify({"msg": "Produto não encontrado"}), 404
 
     except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+        return jsonify({"status": False}), 500

@@ -15,4 +15,4 @@ app.add_url_rule('/produto', 'buscar_produto', buscar_produto, methods=['GET'])
 
 
 if __name__ == '__main__':
-    app.run("192.168.0.10", debug=True)
+    app.run("0.0.0.0", debug=True)
